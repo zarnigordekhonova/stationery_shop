@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h2>As we offer only high-quality products, make your family members,
+    children or friends happy by buying one of them :)</h2>
+<a href="{% url 'products:category_list' %}">{{ category.name }}</a>
+
+</body>
+</html>

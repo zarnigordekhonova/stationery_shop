@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<img src="{{ product.image.url }}" height="200px"><br><br>
+NAME: {{ product.name }}<br>
+DESCRIPTION: {{ product.description }}<br>
+CATEGORY: {{ product.category }}<br>
+COLOR: {{ product.color }}<br>
+PRICE: ${{ product.price }}<br>
+CHARACTERISTICS: {{ product.characteristics }}<br>
+MAKE: {{ product.make }}<br>
+STAR GIVEN : {{ average }}
+
+
+<h2>Reviews</h2>
+{% for thing in things %}
+{{ thing.user }} | {{thing.star_given}}<br>
+{{thing.comment}}<br><br>
+<hr>
+{% endfor %}
+
+
+<a href="{% url 'products:add-review' product.pk %}">Add Review</a>
+
+
+{% block footer %}
+    <footer class="mt-auto py-3 bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <p><strong>Contact Us:</strong> <a href="tel:+993661603">+99 366 16 03</a></p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Follow Us:</strong></p>
+                <a href="#" class="text-dark mr-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark mr-2"><i class="fab fa-telegram"></i></a>
+                <a href="https://example.com" class="text-dark mr-2"><i class="fas fa-globe"></i></a>
+            </div>
+            <div class="col-md-4">
+                <p><strong>More About Us:</strong> <a href="#">Learn More</a></p>
+                <p><strong>Call Center:</strong> <a href="tel:+1005">1005</a></p>
+            </div>
+        </div>
+        <hr>
+        <p>&copy; 2024 MyStore. All rights reserved.</p>
+    </div>
+</footer>
+
+{% endblock %}
+</body>
+</html>
